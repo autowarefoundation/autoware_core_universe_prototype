@@ -1,0 +1,40 @@
+---
+# https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing
+- name: TensorRT (install machine learning repository)
+  become: yes
+  apt:
+    # Use 1804 instead because 2004 seems not working now(20201012)
+    deb: https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+
+- name: TensorRT (install libraries for TensorRT 7)
+  become: yes
+  apt:
+    name:
+      - libcudnn8={{ cudnn_version }}
+      - libcudnn8-dev={{ cudnn_version }}
+      - libnvinfer7={{ tensorrt_version }}
+      - libnvinfer-dev={{ tensorrt_version }}
+      - libnvinfer-plugin7={{ tensorrt_version }}
+      - libnvinfer-plugin-dev={{ tensorrt_version }}
+      - libnvonnxparsers7={{ tensorrt_version }}
+      - libnvonnxparsers-dev={{ tensorrt_version }}
+      - libnvparsers7={{ tensorrt_version }}
+      - libnvparsers-dev={{ tensorrt_version }}
+    update_cache: yes
+
+- name: TensorRT (prevent cuda related packages from upgrading)
+  become: yes
+  command: apt-mark hold "{{ item }}"
+  with_items:
+    - nvidia-machine-learning-repo-ubuntu1804
+    - cuda-11-1
+    - libcudnn8
+    - libcudnn8-dev
+    - libnvinfer7
+    - libnvinfer-dev
+    - libnvinfer-plugin7
+    - libnvinfer-plugin-dev
+    - libnvonnxparsers7
+    - libnvonnxparsers-dev
+    - libnvparsers7
+    - libnvparsers-dev
