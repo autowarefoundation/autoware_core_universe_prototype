@@ -1,0 +1,40 @@
+- name: Add machine learning repository
+  become: true
+  ansible.builtin.apt:
+    # Use 1804 instead because 2004 seems not working now(20220101).
+    deb: https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+
+- name: Install libraries for TensorRT
+  become: true
+  ansible.builtin.apt:
+    name:
+      - libcudnn8={{ cudnn_version }}
+      - libcudnn8-dev={{ cudnn_version }}
+      - libnvinfer7={{ tensorrt_version }}
+      - libnvinfer-dev={{ tensorrt_version }}
+      - libnvinfer-plugin7={{ tensorrt_version }}
+      - libnvinfer-plugin-dev={{ tensorrt_version }}
+      - libnvonnxparsers7={{ tensorrt_version }}
+      - libnvonnxparsers-dev={{ tensorrt_version }}
+      - libnvparsers7={{ tensorrt_version }}
+      - libnvparsers-dev={{ tensorrt_version }}
+    allow_downgrade: true
+    update_cache: true
+
+# apt-mark hold
+- name: Prevent CUDA-related packages from upgrading
+  become: true
+  ansible.builtin.dpkg_selections:
+    name: "{{ item }}"
+    selection: hold
+  with_items:
+    - libcudnn8
+    - libcudnn8-dev
+    - libnvinfer7
+    - libnvinfer-dev
+    - libnvinfer-plugin7
+    - libnvinfer-plugin-dev
+    - libnvonnxparsers7
+    - libnvonnxparsers-dev
+    - libnvparsers7
+    - libnvparsers-dev
