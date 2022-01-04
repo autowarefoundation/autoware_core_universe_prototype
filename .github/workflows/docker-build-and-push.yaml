@@ -1,0 +1,37 @@
+name: docker-build-and-push
+
+on:
+  push:
+    tags:
+      - v*
+  schedule:
+    - cron: 0 19 1,15 * * # run at 4 AM JST every two weeks
+  workflow_dispatch:
+
+jobs:
+  docker-build-and-push-amd64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build 'autoware-universe'
+        uses: ./.github/actions/docker-build-and-push
+        with:
+          bake-target: autoware-universe
+          platforms: linux/amd64
+          tag-suffix: -amd64
+
+  # TODO: Use self-hosted runner
+  docker-build-and-push-arm64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build 'autoware-universe'
+        uses: ./.github/actions/docker-build-and-push
+        with:
+          bake-target: autoware-universe
+          platforms: linux/arm64
+          tag-suffix: -arm64
