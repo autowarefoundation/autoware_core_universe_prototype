@@ -4,6 +4,7 @@
     name:
       - gdown
     state: latest
+    executable: pip3
 
 - name: Download archive
   ansible.builtin.command:

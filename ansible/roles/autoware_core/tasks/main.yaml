@@ -4,3 +4,4 @@
     name:
       - gdown
     state: latest
+    executable: pip3

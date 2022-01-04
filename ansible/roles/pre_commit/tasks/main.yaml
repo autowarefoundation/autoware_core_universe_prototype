@@ -3,6 +3,7 @@
   ansible.builtin.pip:
     name: clang-format
     version: "{{ clang_format_version }}"
+    executable: pip3
 
 # TODO: Remove after we move to Ubuntu 22.04
 - name: Add Go PPA for shfmt

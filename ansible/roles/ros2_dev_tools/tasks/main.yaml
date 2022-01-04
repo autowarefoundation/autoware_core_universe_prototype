@@ -33,6 +33,7 @@
       - pytest
       - setuptools
     state: latest
+    executable: pip3
 
 - name: Run 'sudo rosdep init'
   become: true
