@@ -13,6 +13,9 @@ while [ "$1" != "" ]; do
     -y)
         option_yes=true
         ;;
+    -v)
+        option_verbose=true
+        ;;
     *)
         args+=("$1")
         ;;
@@ -33,7 +36,7 @@ if [ "$core_universe" != "core" ] && [ "$core_universe" != "universe" ]; then
 fi
 
 # Confirm to start installation
-ansible_options=("-v")
+ansible_options=()
 if [ "$option_yes" = "true" ]; then
     echo -e "\e[36mRun setup in non-interactive mode.\e[m"
     ansible_options+=("--extra-vars" "install_nvidia=y")
@@ -46,6 +49,11 @@ else
         echo -e "\e[33mCancelled.\e[0m"
         exit 1
     fi
+fi
+
+# Check verbose option
+if [ "$option_verbose" = "true" ]; then
+    ansible_options+=("-v")
 fi
 
 # Check sudo
