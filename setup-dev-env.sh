@@ -16,6 +16,9 @@ while [ "$1" != "" ]; do
     -v)
         option_verbose=true
         ;;
+    --no-nvidia)
+        option_no_nvidia=true
+        ;;
     *)
         args+=("$1")
         ;;
@@ -35,11 +38,12 @@ if [ "$core_universe" != "core" ] && [ "$core_universe" != "universe" ]; then
     exit 1
 fi
 
-# Confirm to start installation
+# Initialize ansible options
 ansible_options=()
+
+# Confirm to start installation
 if [ "$option_yes" = "true" ]; then
     echo -e "\e[36mRun setup in non-interactive mode.\e[m"
-    ansible_options+=("--extra-vars" "install_nvidia=y")
 else
     echo -e "\e[33mSetting up the build environment take up to 1 hour.\e[m"
     read -rp ">  Are you sure to run setup? [y/N] " answer
@@ -54,6 +58,13 @@ fi
 # Check verbose option
 if [ "$option_verbose" = "true" ]; then
     ansible_options+=("-v")
+fi
+
+# Check NVIDIA Installation
+if [ "$option_no_nvidia" = "true" ]; then
+    ansible_options+=("--extra-vars" "install_nvidia=n")
+elif [ "$option_yes" = "true" ]; then
+    ansible_options+=("--extra-vars" "install_nvidia=y")
 fi
 
 # Check sudo
