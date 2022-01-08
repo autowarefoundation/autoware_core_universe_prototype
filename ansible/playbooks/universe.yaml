@@ -3,9 +3,9 @@
   vars:
     - rosdistro: galactic
     - rmw_implementation: rmw_cyclonedds_cpp
-    - cuda_version: 11-1
-    - cudnn_version: 8.0.5.39-1+cuda11.1
-    - tensorrt_version: 7.2.1-1+cuda11.1
+    - cuda_version: 11-4
+    - cudnn_version: 8.2.2.26-1+cuda11.4
+    - tensorrt_version: 8.2.2-1+cuda11.4
   vars_prompt:
     - name: install_nvidia
       prompt: |-
