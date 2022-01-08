@@ -41,6 +41,10 @@ repositories:
     type: git
     url: https://github.com/tier4/topic_tools.git
     version: tier4/main
+  universe/vendor/pacmod3_msgs: # TODO(Tier IV): Remove after Galactic ARM version is released in https://s3.amazonaws.com/autonomoustuff-repo
+    type: git
+    url: https://github.com/astuff/pacmod3_msgs.git
+    version: main
   # sensor_component
   sensor_component/tmp/velodyne_description: # TODO(Tier IV): Remove after https://github.com/ros/rosdistro/pull/31611 is released
     type: git
