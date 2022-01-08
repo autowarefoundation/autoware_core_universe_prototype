@@ -38,8 +38,8 @@ if [ "$core_universe" != "core" ] && [ "$core_universe" != "universe" ]; then
     exit 1
 fi
 
-# Initialize ansible options
-ansible_options=()
+# Initialize ansible args
+ansible_args=()
 
 # Confirm to start installation
 if [ "$option_yes" = "true" ]; then
@@ -57,14 +57,14 @@ fi
 
 # Check verbose option
 if [ "$option_verbose" = "true" ]; then
-    ansible_options+=("-v")
+    ansible_args+=("-v")
 fi
 
 # Check NVIDIA Installation
 if [ "$option_no_nvidia" = "true" ]; then
-    ansible_options+=("--extra-vars" "install_nvidia=n")
+    ansible_args+=("--extra-vars" "install_nvidia=n")
 elif [ "$option_yes" = "true" ]; then
-    ansible_options+=("--extra-vars" "install_nvidia=y")
+    ansible_args+=("--extra-vars" "install_nvidia=y")
 fi
 
 # Check sudo
@@ -72,7 +72,7 @@ if ! (command -v sudo >/dev/null 2>&1); then
     SUDO=
 else
     SUDO=sudo
-    ansible_options+=("--ask-become-pass")
+    ansible_args+=("--ask-become-pass")
 fi
 
 # Install pip for ansible
@@ -91,8 +91,8 @@ fi
 ansible-galaxy collection install -f -r "$SCRIPT_DIR/ansible-galaxy-requirements.yaml"
 
 # Run ansible
-echo Run ansible-playbook "autoware.dev_env.$core_universe" "${ansible_options[@]}"
-if ansible-playbook "autoware.dev_env.$core_universe" "${ansible_options[@]}"; then
+echo Run ansible-playbook "autoware.dev_env.$core_universe" "${ansible_args[@]}"
+if ansible-playbook "autoware.dev_env.$core_universe" "${ansible_args[@]}"; then
     echo -e "\e[32mCompleted.\e[0m"
     exit 0
 else
