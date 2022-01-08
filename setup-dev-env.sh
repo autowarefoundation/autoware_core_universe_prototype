@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Setup development environment for Autoware Core/Universe.
-# Usage: setup-dev-env.sh <installation_type('core' or 'universe')>
+# Usage: setup-dev-env.sh <installation_type('core' or 'universe')> [-y] [-v] [--no-nvidia]
+# Note: -y option is only for CI.
 
 set -e
 
@@ -53,6 +54,8 @@ else
         echo -e "\e[33mCancelled.\e[0m"
         exit 1
     fi
+
+    ansible_args+=("--ask-become-pass")
 fi
 
 # Check verbose option
@@ -67,24 +70,22 @@ elif [ "$option_yes" = "true" ]; then
     ansible_args+=("--extra-vars" "install_nvidia=y")
 fi
 
-# Check sudo
+# Install sudo
 if ! (command -v sudo >/dev/null 2>&1); then
-    SUDO=
-else
-    SUDO=sudo
-    ansible_args+=("--ask-become-pass")
+    apt-get -y update
+    apt-get -y install sudo
 fi
 
 # Install pip for ansible
 if ! (command -v pip3 >/dev/null 2>&1); then
-    $SUDO apt-get -y update
-    $SUDO apt-get -y install python3-pip
+    sudo apt-get -y update
+    sudo apt-get -y install python3-pip
 fi
 
 # Install ansible
 ansible_version=$(pip3 list | grep -oP "^ansible\s+\K([0-9]+)" || true)
 if [ "$ansible_version" != "5" ]; then
-    $SUDO pip3 install -U "ansible==5.*"
+    sudo pip3 install -U "ansible==5.*"
 fi
 
 # Install ansible collections
