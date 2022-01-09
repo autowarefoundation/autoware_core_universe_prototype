@@ -28,6 +28,11 @@ jobs:
   docker-build-and-push-arm64:
     runs-on: [self-hosted, linux, ARM64]
     steps:
+      # https://github.com/actions/checkout/issues/211
+      - name: Change permission of workspace
+        run: |
+          sudo chown -R $USER:$USER ${{ github.workspace }}
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
