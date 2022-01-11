@@ -1,0 +1,27 @@
+name: free-disk-space
+description: ""
+
+runs:
+  using: composite
+  steps:
+    # https://github.community/t/bug-strange-no-space-left-on-device-ioexceptions-on-github-runners/17616
+    - name: Free disk space
+      run: |
+        df -h
+
+        sudo apt-get -y purge \
+          dotnet* \
+          ghc* \
+          php*
+        sudo apt-get -y autoremove
+        sudo apt-get -y autoclean
+
+        sudo rm -rf \
+          /usr/local/lib/android \
+          /usr/share/dotnet/ \
+          /opt/ghc
+
+        docker rmi $(docker image ls -aq)
+
+        df -h
+      shell: bash

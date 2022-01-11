@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Free disk space
+        uses: ./.github/actions/free-disk-space
+
       - name: Build 'autoware-universe'
         uses: ./.github/actions/docker-build-and-push
         with:
@@ -28,6 +31,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Free disk space
+        uses: ./.github/actions/free-disk-space
 
       - name: Build 'autoware-universe'
         uses: ./.github/actions/docker-build-and-push
