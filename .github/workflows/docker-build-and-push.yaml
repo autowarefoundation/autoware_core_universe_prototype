@@ -32,6 +32,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # https://github.com/docker/buildx/issues/495#issuecomment-918925854
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v1
+        with:
+          image: tonistiigi/binfmt:latest
+          platforms: all
+
       - name: Free disk space
         uses: ./.github/actions/free-disk-space
 
