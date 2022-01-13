@@ -20,7 +20,8 @@ runs:
         sudo apt-get -y purge \
           dotnet* \
           ghc* \
-          php*
+          php* \
+          || true
         sudo apt-get -y autoremove
         sudo apt-get -y autoclean
 
@@ -29,7 +30,7 @@ runs:
           /usr/share/dotnet/ \
           /opt/ghc
 
-        docker rmi $(docker image ls -aq)
+        docker rmi $(docker image ls -aq) || true
 
         df -h
       shell: bash
