@@ -4,6 +4,14 @@ description: ""
 runs:
   using: composite
   steps:
+    - name: Install sudo
+      run: |
+        if ! (command -v sudo >/dev/null 2>&1); then
+            apt-get -y update
+            apt-get -y install sudo
+        fi
+      shell: bash
+
     # https://github.community/t/bug-strange-no-space-left-on-device-ioexceptions-on-github-runners/17616
     - name: Free disk space
       run: |
