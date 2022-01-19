@@ -4,19 +4,18 @@
 
 We welcome contributions from everyone, and to ensure our community stays open and healthy
 we adhere to the [Contributor Covenant](https://www.contributor-covenant.org/), a widely
-used [code of conduct](/CODE_OF_CONDUCT.md) adopted by many other communities such as
-Linux, Ruby on Rails and GitLab.
+used [code of conduct](CODE_OF_CONDUCT.md) adopted by many other communities such as
+Linux, Ruby on Rails, and GitLab.
 
-Everyone participating in the Autoware.Auto community is expected to follow the code of
-conduct.
+Everyone participating in the Autoware community is expected to follow the code of conduct.
 
 If someone in the community happens to be violating these terms, please let the project
 leads know, and we will address it as soon as possible.
 
 ## License
 
-Autoware.Auto is licensed under Apache 2, and thus all contributions will be licensed as such
-as per clause 5 of the Apache 2 License:
+Autoware is licensed under Apache License 2.0, and thus all contributions will be licensed as such
+as per clause 5 of the Apache License 2.0:
 
 ```text
 5. Submission of Contributions. Unless You explicitly state otherwise,
@@ -31,7 +30,7 @@ as per clause 5 of the Apache 2 License:
 Here is an example copyright header to add to the top of a new file:
 
 ```text
-Copyright 2021 The Autoware Foundation
+Copyright 2022 The Autoware Foundation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -50,19 +49,27 @@ This assigns the copyright to The Autoware Foundation. If the contribution is ma
 by a company wishing to retain the copyright, then use the following copyright notice at the top of the file:
 
 ```text
+Copyright [First year of contribution] Most recent author, previous authors
+```
+
+Optionally, add the current year.
+
+```text
 Copyright [First year of contribution]-[Most recent year of contribution] Most recent author, previous authors
 ```
 
 Concrete examples:
 
-1. If Company X contributes code in 2021, use `Copyright 2021 Company X`.
-2. If Company X contributes code in 2019 and modifies it in 2021, use `Copyright 2019-2021 Company X`
-3. If Company X contributes code in 2019 and Company Y modifies it in 2021, use `Copyright 2019-2021 Company Y, Company X`
-4. If Company X and Company Y contribute in a joint effort, use `Copyright 2021 Company X, Company Y`
+1. If Company X contributes code in 2022, use `Copyright 2022 Company X`.
+2. If Company X contributes code in 2019 and modifies it in 2022, use `Copyright 2019 Company X` or `Copyright 2019-2022 Company X`
+3. If Company X contributes code in 2019 and Company Y modifies it in 2022, use `Copyright 2019 Company Y, Company X` or `Copyright 2019-2022 Company Y, Company X`
+4. If Company X and Company Y contribute in a joint effort, use `Copyright 2022 Company X, Company Y`
+
+Reference: <https://opensource.google/docs/copyright/#the-year>
 
 ## Detailed contribution guidelines
 
-For more detailed information on contributing to Autoware.Auto, including development processes,
+For more detailed information on contributing to Autoware, including development processes,
 please see the contributor guidelines in the documentation:
 
-<https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/contributor-guidelines.html>
+<https://autowarefoundation.github.io/autoware-documentation/tier4-proposal/contributing/coding-guidelines/>
