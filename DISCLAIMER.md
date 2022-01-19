@@ -1,10 +1,8 @@
 DISCLAIMER
 
-The open-source software for self-driving vehicles, Autoware.AI, Autoware.IO,
-Autoware.Auto. (collectively, referred to as “Autoware”) will be provided by
-The Autoware Foundation under the Apache 2.0 License. This “DISCLAIMER” will be
-applied to all users of Autoware (a “User” or “Users”) with the Apache 2.0
-License and Users shall hereby approve and acknowledge all the contents
+“Autoware” will be provided by The Autoware Foundation under the Apache License 2.0.
+This “DISCLAIMER” will be applied to all users of Autoware (a “User” or “Users”) with
+the Apache License 2.0 and Users shall hereby approve and acknowledge all the contents
 specified in this disclaimer below and will be deemed to consent to this
 disclaimer without any objection upon utilizing or downloading Autoware.
 
