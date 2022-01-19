@@ -18,7 +18,7 @@ leads know, and we will address it as soon as possible.
 Autoware.Auto is licensed under Apache 2, and thus all contributions will be licensed as such
 as per clause 5 of the Apache 2 License:
 
-~~~
+```text
 5. Submission of Contributions. Unless You explicitly state otherwise,
    any Contribution intentionally submitted for inclusion in the Work
    by You to the Licensor shall be under the terms and conditions of
@@ -26,11 +26,11 @@ as per clause 5 of the Apache 2 License:
    Notwithstanding the above, nothing herein shall supersede or modify
    the terms of any separate license agreement you may have executed
    with Licensor regarding such Contributions.
-~~~
+```
 
 Here is an example copyright header to add to the top of a new file:
 
-```
+```text
 Copyright 2021 The Autoware Foundation
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -49,7 +49,7 @@ limitations under the License.
 This assigns the copyright to The Autoware Foundation. If the contribution is made by individuals or
 by a company wishing to retain the copyright, then use the following copyright notice at the top of the file:
 
-```
+```text
 Copyright [First year of contribution]-[Most recent year of contribution] Most recent author, previous authors
 ```
 
@@ -65,4 +65,4 @@ Concrete examples:
 For more detailed information on contributing to Autoware.Auto, including development processes,
 please see the contributor guidelines in the documentation:
 
-https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/contributor-guidelines.html
+<https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/contributor-guidelines.html>
