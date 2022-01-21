@@ -50,12 +50,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-ins
 # hadolint ignore=SC1091
 RUN source /opt/ros/galactic/setup.bash
 CMD ["/bin/bash"]
-WORKDIR /
 
 FROM devel as prebuilt
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-WORKDIR /autoware
 
 ## Build and change permission for runtime data conversion
 # hadolint ignore=SC1091
