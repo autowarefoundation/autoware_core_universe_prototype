@@ -25,6 +25,10 @@ jobs:
           platforms: linux/amd64
           tag-suffix: -amd64
 
+      - name: Show disk space
+        run: |
+          df -h
+
   docker-build-and-push-arm64:
     runs-on: [self-hosted, linux, ARM64]
     steps:
@@ -45,3 +49,7 @@ jobs:
           bake-target: autoware-universe
           platforms: linux/arm64
           tag-suffix: -arm64
+
+      - name: Show disk space
+        run: |
+          df -h
