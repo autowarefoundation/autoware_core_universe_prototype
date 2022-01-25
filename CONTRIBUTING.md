@@ -60,10 +60,26 @@ Copyright [First year of contribution]-[Most recent year of contribution] Most r
 
 Concrete examples:
 
-1. If Company X contributes code in 2022, use `Copyright 2022 Company X`.
-2. If Company X contributes code in 2019 and modifies it in 2022, use `Copyright 2019 Company X` or `Copyright 2019-2022 Company X`
-3. If Company X contributes code in 2019 and Company Y modifies it in 2022, use `Copyright 2019 Company Y, Company X` or `Copyright 2019-2022 Company Y, Company X`
-4. If Company X and Company Y contribute in a joint effort, use `Copyright 2022 Company X, Company Y`
+### If Company X contributes code in 2022
+
+`Copyright 2022 Company X`
+
+### If Company X contributes code in 2019 and modifies it in 2022
+
+`Copyright 2019 Company X` or
+
+`Copyright 2019-2022 Company X`
+
+### If Company X contributes code in 2019 and Company Y modifies it in 2022
+
+```text
+Copyright 2019 Company X
+Copyright 2022 Company Y
+```
+
+### If Company X and Company Y contribute in a joint effort in 2022
+
+`Copyright 2022 Company X, Company Y`
 
 Reference: <https://opensource.google/docs/copyright/#the-year>
 
