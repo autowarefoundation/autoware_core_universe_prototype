@@ -49,13 +49,13 @@ This assigns the copyright to The Autoware Foundation. If the contribution is ma
 by a company wishing to retain the copyright, then use the following copyright notice at the top of the file:
 
 ```text
-Copyright [First year of contribution] Most recent author, previous authors
+Copyright [first year of contribution] most recent author, previous authors
 ```
 
 Optionally, add the current year.
 
 ```text
-Copyright [First year of contribution]-[Most recent year of contribution] Most recent author, previous authors
+Copyright [first year of contribution]-[most recent year of contribution] most recent author, previous authors
 ```
 
 Concrete examples:
@@ -88,4 +88,4 @@ Reference: <https://opensource.google/docs/copyright/#the-year>
 For more detailed information on contributing to Autoware, including development processes,
 please see the contributor guidelines in the documentation:
 
-<https://autowarefoundation.github.io/autoware-documentation/tier4-proposal/contributing/coding-guidelines/>
+<https://autowarefoundation.github.io/autoware-documentation/tier4-proposal/contributing/>
