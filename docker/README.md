@@ -18,14 +18,13 @@ Note: Before pulling these images, please confirm and agree with the [NVIDIA Dee
 
 This image is for developing Autoware without setting up the local development environment.
 
-You can use this image as below.
-If you do not mount your workspace by `-v` option, the workspace used for building `prebuilt` image is opened, but it is usually useless.
+To use the development image, run the following command:
 
 ```bash
 docker run --rm -it -v {path_to_your_workspace}:/autoware ghcr.io/autowarefoundation/autoware-universe:latest
 ```
 
-It is useful to use `rocker` if you launch `rviz` or other GUI applications.
+To use the development image with `rocker` in order to run `rviz` or any other GUI applications, run the following command:
 Please note that `setup.bash` is not automatically sourced with `rocker`.
 
 ```bash
@@ -41,21 +40,21 @@ rocker --nvidia --x11 --user --home -- ghcr.io/autowarefoundation/autoware-unive
 
 ### Prebuilt image
 
-This image is for quickly testing Autoware's feature. Please note that it is not designed to deploy on real vehicles.
+Please note that the prebuilt Autoware Docker image is not designed for deployment on a real vehicle!
 
-You can use this image as below.
+To use the prebuilt image, run the following command:
 
 ```bash
 docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt
 ```
 
-If you use `rocker`:
+To use the prebuilt image with `rocker`:
 
 ```bash
 rocker --nvidia --x11 --user --volume {path_to_your_workspace} -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt
 ```
 
-If you use some map data and log data, add `--volume` options as below or use `--home` option and place the data under your home directory.
+If you intend to use pre-existing data such as maps or Rosbags, either modify the `--volume` options shown below or alternatively replace them with the `--home` option and place the required data under your home directory.
 
 ```bash
 rocker --nvidia --x11 --user --volume {path_to_your_workspace} --volume {path_to_your_map_data} --volume {path_to_your_log_data} -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt
