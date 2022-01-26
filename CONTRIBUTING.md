@@ -42,7 +42,7 @@ This product includes code developed by [company name].
 Copyright [first year of contribution] [company name]
 ```
 
-Please let us know if your legal division has a special request for the copyright notation.
+Please let us know if your legal department has a special request for the copyright notation.
 
 Currently, the old formats explained [here](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/87c5e5880a18068116dd886ad56e1bfc29e694c4/CONTRIBUTING.md) are also acceptable.
 Those old formats can be replaced by this new format if the original authors agree,
