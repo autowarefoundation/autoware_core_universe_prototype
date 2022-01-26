@@ -48,7 +48,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-ins
 
 ## Create entrypoint
 # hadolint ignore=SC1091
-RUN source /opt/ros/galactic/setup.bash
+RUN echo "source /opt/ros/galactic/setup.bash" > /etc/bash.bashrc
 CMD ["/bin/bash"]
 
 FROM devel as prebuilt
@@ -62,5 +62,5 @@ RUN source /opt/ros/galactic/setup.bash \
 
 ## Create entrypoint
 # hadolint ignore=SC1091
-RUN source /autoware/install/setup.bash
+RUN echo "source /autoware/install/setup.bash" > /etc/bash.bashrc
 CMD ["/bin/bash"]
