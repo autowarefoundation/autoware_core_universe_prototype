@@ -30,47 +30,32 @@ as per clause 5 of the Apache License 2.0:
 Here is an example copyright header to add to the top of a new file:
 
 ```text
-Copyright 2022 The Autoware Foundation
+Copyright [first year of contribution] The Autoware Contributors
 SPDX-License-Identifier: Apache-2.0
 ```
 
-This assigns the copyright to The Autoware Foundation. If the contribution is made by individuals or
-by a company wishing to retain the copyright, then use the following copyright notice at the top of the file:
+We don't write copyright notations of each contributor here.
+Instead, we place them in the `NOTICE` file like the following.
 
 ```text
-Copyright [first year of contribution] most recent author, previous authors
+This product includes code developed by [company name].
+Copyright [first year of contribution] [company name]
 ```
 
-Optionally, add the current year.
+Please let us know if your legal division has a special request for the copyright notation.
 
-```text
-Copyright [first year of contribution]-[most recent year of contribution] most recent author, previous authors
-```
+Currently, the old formats explained [here](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/87c5e5880a18068116dd886ad56e1bfc29e694c4/CONTRIBUTING.md) are also acceptable.
+Those old formats can be replaced by this new format if the original authors agree,
+please note that we won't write their copyrights to the `NOTICE` file unless they agree with the new format.
 
-Concrete examples:
+References:
 
-### If Company X contributes code in 2022
-
-`Copyright 2022 Company X`
-
-### If Company X contributes code in 2019 and modifies it in 2022
-
-`Copyright 2019 Company X` or
-
-`Copyright 2019-2022 Company X`
-
-### If Company X contributes code in 2019 and Company Y modifies it in 2022
-
-```text
-Copyright 2019 Company X
-Copyright 2022 Company Y
-```
-
-### If Company X and Company Y contribute in a joint effort in 2022
-
-`Copyright 2022 Company X, Company Y`
-
-Reference: <https://opensource.google/docs/copyright/#the-year>
+- <https://opensource.google/docs/copyright/#the-year>
+- <https://www.linuxfoundation.org/blog/copyright-notices-in-open-source-software-projects/>
+- <https://www.apache.org/licenses/LICENSE-2.0>
+- <https://www.apache.org/legal/src-headers.html>
+- <https://www.apache.org/foundation/license-faq.html>
+- <https://infra.apache.org/licensing-howto.html>
 
 ## Detailed contribution guidelines
 
