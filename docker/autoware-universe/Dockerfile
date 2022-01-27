@@ -19,7 +19,7 @@ RUN ls /autoware
 RUN mkdir -p ~/.ssh \
   && ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-## Setup development environment
+## Set up development environment
 RUN --mount=type=ssh \
   ./setup-dev-env.sh -y --no-nvidia universe \
   && mkdir src \

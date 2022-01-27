@@ -12,7 +12,7 @@ jobs:
   docker-build-and-push-amd64:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v2
 
       - name: Free disk space
@@ -37,7 +37,7 @@ jobs:
         run: |
           sudo chown -R $USER:$USER ${{ github.workspace }}
 
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v2
 
       - name: Free disk space
