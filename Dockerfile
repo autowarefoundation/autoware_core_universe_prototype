@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 LABEL VERSION autoware-2.0
-ENV  ROS_DISTRO galatic
+ENV  ROS_DISTRO galactic
 #
 # Configure environmet
 #
@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Configure environmet
 #
 
-# RUN update-locale LANG=en_US.UTF-8 LC_MESSAGES=POSIX
+#RUN update-locale LANG=en_US.UTF-8 LC_MESSAGES=POSIX
 
 # Add user
 ENV USERNAME autoware
@@ -48,7 +48,7 @@ COPY . /home/$USERNAME
 RUN  ./setup-dev-env.sh -y universe
 
 
-USER autoware
+USER $USERNAME
 
 RUN  mkdir src && vcs import src < autoware.repos
 RUN apt-get -y update && rosdep update && DEBIAN_FRONTEND=noninteractive rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
