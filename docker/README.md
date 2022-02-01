@@ -4,16 +4,16 @@ We have two types of Docker image: `development` and `prebuilt`.
 
 1. The `development` image enables you to develop Autoware without setting up the local development environment.
 2. The `prebuilt` image contains executables and enables you to try out Autoware quickly.
-   - Please note that the prebuilt image is not designed for deployment on a real vehicle!
+   - Note that the prebuilt image is not designed for deployment on a real vehicle!
 
-**Note**: Before pulling these images, please confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
+**Note**: Before pulling these images, confirm and agree with the [NVIDIA Deep Learning Container license](https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license).
 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - [rocker](https://github.com/osrf/rocker)
   - We use `rocker` to enable GUI applications such as `rviz` and `rqt` on Docker Containers.
-  - Please see [here](http://wiki.ros.org/docker/Tutorials/GUI) for more details.
+  - Refer to [here](http://wiki.ros.org/docker/Tutorials/GUI) for more details.
 
 The [setup script](../setup-dev-env.sh) will install these dependencies through the [docker role](../ansible/roles/docker/README.md).
 
@@ -80,7 +80,7 @@ rocker --nvidia --x11 --user \
 ### Precautions for not using `rocker`
 
 If either image is run without `rocker`, then `root` privileges will be used.
-This can affect your local environment.
+This can affect your local environment as below:
 
 ```sh-session
 $ docker run --rm -it -v {path_to_your_workspace}:/autoware ghcr.io/autowarefoundation/autoware-universe:latest
@@ -91,14 +91,13 @@ rm: remove write-protected regular empty file 'build/COLCON_IGNORE'? y
 rm: cannot remove 'build/COLCON_IGNORE': Permission denied
 ```
 
-There are several ways to prevent this error from occurring:
+To prevent this error from occurring without `rocker`, there are two suggested methods:
 
 1. Prepare a dedicated workspace for the docker image.
-2. Use `rocker`.
-3. Use Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+2. Use Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 
    To use the extension, the following settings can be used to create a user account in a similar way to `rocker.  
-   Please see [this document](https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user) for more details.
+   Refer to [this document](https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user) for more details.
 
    ```jsonc
    // .devcontainer/devcontainer.json
@@ -133,7 +132,7 @@ There are several ways to prevent this error from occurring:
 ### Using Docker images other than `latest`
 
 There are also images versioned based on the `date` or `tag`.  
-Please use them when you need a fixed version of the image.
+Use them when you need a fixed version of the image.
 
 The list of versions can be found [here](https://github.com/autowarefoundation/autoware/packages).
 
