@@ -15,7 +15,7 @@ We have two types of Docker image: `development` and `prebuilt`.
   - We use `rocker` to enable GUI applications such as `rviz` and `rqt` on Docker Containers.
   - Please see [here](http://wiki.ros.org/docker/Tutorials/GUI) for more details.
 
-The setup script in this repository will install these dependencies.
+The [setup script](../setup-dev-env.sh) will install these dependencies through the [docker role](../ansible/roles/docker/README.md).
 
 ## Usage
 
@@ -130,7 +130,7 @@ There are several ways to prevent this error from occurring:
      && chmod 0440 /etc/sudoers.d/$USERNAME
    ```
 
-### Using other versions of images than `latest`
+### Using Docker images other than `latest`
 
 There are also images versioned based on the `date` or `tag`.  
 Please use them when you need a fixed version of the image.
@@ -139,7 +139,7 @@ The list of versions can be found [here](https://github.com/autowarefoundation/a
 
 ### Building Docker images on your local machine
 
-If you build the images locally instead of pulling them from the server, run the following command:
+To build the images locally, run the following command:
 
 ```bash
 cd autoware/
