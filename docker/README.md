@@ -91,7 +91,7 @@ rm: remove write-protected regular empty file 'build/COLCON_IGNORE'? y
 rm: cannot remove 'build/COLCON_IGNORE': Permission denied
 ```
 
-To prevent this error from occurring without `rocker`, there are two suggested methods:
+To prevent this error occurring when rocker is not used, there are two suggested methods:
 
 1. Prepare a dedicated workspace for the docker image.
 2. Use Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
