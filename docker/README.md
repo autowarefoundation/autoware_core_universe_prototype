@@ -75,6 +75,15 @@ rocker --nvidia --x11 --user \
   -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt
 ```
 
+## Building Docker images on your local machine
+
+If you want to build these images locally for development purposes, run the following command:
+
+```bash
+cd autoware/
+./docker/build.sh
+```
+
 ## Tips
 
 ### Precautions for not using `rocker`
@@ -131,16 +140,7 @@ To prevent this error occurring when rocker is not used, there are two suggested
 
 ### Using Docker images other than `latest`
 
-There are also images versioned based on the `date` or `tag`.  
+There are also images versioned based on the `date` or `release tag`.  
 Use them when you need a fixed version of the image.
 
 The list of versions can be found [here](https://github.com/autowarefoundation/autoware/packages).
-
-### Building Docker images on your local machine
-
-To build the images locally, run the following command:
-
-```bash
-cd autoware/
-./docker/build.sh
-```
