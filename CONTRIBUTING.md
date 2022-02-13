@@ -9,8 +9,8 @@ Linux, Ruby on Rails, and GitLab.
 
 Everyone participating in the Autoware community is expected to follow the code of conduct.
 
-If someone in the community happens to be violating these terms, please let the project
-leads know, and we will address it as soon as possible.
+If someone in the community happens to be violating these terms,
+let the project leads know, and we will address it as soon as possible.
 
 ## License
 
@@ -42,11 +42,11 @@ This product includes code developed by [company name].
 Copyright [first year of contribution] [company name]
 ```
 
-Please let us know if your legal department has a special request for the copyright notation.
+Let us know if your legal department has a special request for the copyright notation.
 
 Currently, the old formats explained [here](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/87c5e5880a18068116dd886ad56e1bfc29e694c4/CONTRIBUTING.md) are also acceptable.
-Those old formats can be replaced by this new format if the original authors agree,
-please note that we won't write their copyrights to the `NOTICE` file unless they agree with the new format.
+Those old formats can be replaced by this new format if the original authors agree.  
+Note that we won't write their copyrights to the `NOTICE` file unless they agree with the new format.
 
 References:
 
@@ -60,6 +60,6 @@ References:
 ## Detailed contribution guidelines
 
 For more detailed information on contributing to Autoware, including development processes,
-please see the contributor guidelines in the documentation:
+see the contribution guidelines in the documentation:
 
-<https://autowarefoundation.github.io/autoware-documentation/tier4-proposal/contributing/>
+<https://autowarefoundation.github.io/autoware-documentation/main/contributing/>
