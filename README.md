@@ -107,6 +107,7 @@ Suppose that you've installed a development environment.
    ```bash
    mkdir src
    vcs import src < autoware.repos
+   vcs import src < simulator.repos # Optional: If you want to run scenario simulation with tier4/scenario_simulator_v2, execute this line.
    ```
 
 2. Install dependent ROS packages.
@@ -140,6 +141,20 @@ Suppose that you've set up a workspace.
    ```bash
    source install/setup.bash
    ros2 launch tier4_autoware_launch planning_simulator.launch.xml vehicle_model:=lexus sensor_model:=aip_xx1 map_path:=$HOME/Downloads/sample_map
+   ```
+
+### How to run a scenario simulation
+
+1. Launch a simulation.
+
+   ```bash
+   ros2 launch scenario_test_runner scenario_test_runner.launch.py \
+     autoware_launch_package:=tier4_autoware_launch \
+     initialize_duration:=20 \
+     record:=false \
+     scenario:='$(find-pkg-share scenario_test_runner)/test/scenario/autoware-simple.yaml' \
+     sensor_model:=aip_xx1 \
+     vehicle_model:=lexus
    ```
 
 > Note: More tutorials will be written [here](https://autowarefoundation.github.io/autoware-documentation/tier4-proposal/) soon.
