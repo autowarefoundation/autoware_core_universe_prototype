@@ -84,8 +84,10 @@ If you want to build these images locally for development purposes, run the foll
 
 ```bash
 cd autoware/
-./docker/build.sh
+./docker/build.sh {target_image}
 ```
+
+The supported values for the `{target_image}` are `autoware-core` or `autoware-universe`.
 
 ## Tips
 

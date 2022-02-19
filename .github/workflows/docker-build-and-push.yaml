@@ -26,6 +26,16 @@ jobs:
             cat arm64.env | sed -e "s/^\s*//" -e "/^#/d" >> $GITHUB_ENV
           fi
 
+      - name: Build 'autoware-core'
+        uses: ./.github/actions/docker-build-and-push
+        with:
+          bake-target: autoware-core
+          build-args: |
+            *.platform=linux/amd64
+            *.args.ROS_DISTRO=${{ env.rosdistro }}
+            *.args.BASE_IMAGE=${{ env.base_image }}
+          tag-suffix: -amd64
+
       - name: Build 'autoware-universe'
         uses: ./.github/actions/docker-build-and-push
         with:
