@@ -89,13 +89,10 @@
 # curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 - name: Add NVIDIA Docker apt repository to source list
   become: true
-  ansible.builtin.lineinfile:
+  ansible.builtin.copy:
     dest: /etc/apt/sources.list.d/nvidia-docker.list
-    line: "{{ item }}"
-    state: present
-    create: true
+    content: "{{ nvidia_docker_list.content }}"
     mode: 0644
-  with_items: "{{ nvidia_docker_list.content }}"
 
 - name: Install NVIDIA Container Toolkit
   become: true
