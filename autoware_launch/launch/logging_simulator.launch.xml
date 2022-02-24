@@ -26,16 +26,19 @@
   <arg name="scenario_simulation" default="false" description="use scenario simulation"/>
 
   <!-- Global parameters -->
+  <!-- Do not add "group" in order to propagate global parameters -->
   <include file="$(find-pkg-share global_parameter_loader)/launch/global_params.launch.py">
     <arg name="use_sim_time" value="true"/>
     <arg name="vehicle_model" value="$(var vehicle_model)"/>
   </include>
 
   <!-- Pointcloud container -->
-  <include file="$(find-pkg-share autoware_launch)/launch/pointcloud_container.launch.py" if="$(var use_pointcloud_container)">
-    <arg name="use_multithread" value="true"/>
-    <arg name="container_name" value="$(var pointcloud_container_name)"/>
-  </include>
+  <group>
+    <include file="$(find-pkg-share autoware_launch)/launch/pointcloud_container.launch.py" if="$(var use_pointcloud_container)">
+      <arg name="use_multithread" value="true"/>
+      <arg name="container_name" value="$(var pointcloud_container_name)"/>
+    </include>
+  </group>
 
   <!-- Vehicle -->
   <group>
@@ -77,8 +80,7 @@
 
   <!-- Localization -->
   <group>
-    <include file="$(find-pkg-share tier4_localization_launch)/launch/localization.launch.xml" if="$(var localization)">
-    </include>
+    <include file="$(find-pkg-share tier4_localization_launch)/launch/localization.launch.xml" if="$(var localization)"/>
   </group>
 
   <!-- Perception -->
@@ -106,27 +108,29 @@
     </include>
   </group>
 
-  <!-- Rviz -->
-  <node
-    pkg="rviz2"
-    exec="rviz2"
-    name="rviz2"
-    output="screen"
-    args="-d $(find-pkg-share autoware_launch)/rviz/autoware.rviz -s $(find-pkg-share autoware_launch)/rviz/image/autoware.png"
-    if="$(var rviz)"
-  >
-  </node>
-
-  <!-- Web Controller -->
+  <!-- Tools -->
   <group>
+    <!-- Rviz -->
+    <node
+      pkg="rviz2"
+      exec="rviz2"
+      name="rviz2"
+      output="screen"
+      args="-d $(find-pkg-share autoware_launch)/rviz/autoware.rviz -s $(find-pkg-share autoware_launch)/rviz/image/autoware.png"
+      if="$(var rviz)"
+    />
+
+    <!-- Web Controller -->
     <include file="$(find-pkg-share web_controller)/launch/web_controller.launch.xml"/>
   </group>
 
   <!-- Simulator -->
-  <include file="$(find-pkg-share tier4_simulator_launch)/launch/simulator.launch.xml">
-    <arg name="scenario_simulation" value="$(var scenario_simulation)"/>
-    <arg name="vehicle_simulation" value="false"/>
-    <arg name="vehicle_model" value="$(var vehicle_model)"/>
-    <arg name="vehicle_info_param_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
-  </include>
+  <group>
+    <include file="$(find-pkg-share tier4_simulator_launch)/launch/simulator.launch.xml">
+      <arg name="scenario_simulation" value="$(var scenario_simulation)"/>
+      <arg name="vehicle_simulation" value="false"/>
+      <arg name="vehicle_model" value="$(var vehicle_model)"/>
+      <arg name="vehicle_info_param_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
+    </include>
+  </group>
 </launch>
