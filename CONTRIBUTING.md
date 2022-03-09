@@ -1,3 +1,3 @@
 # Contributing
 
-See <https://autowarefoundation.github.io/autoware-documentation/latest/contributing/>.
+See <https://autowarefoundation.github.io/autoware-documentation/main/contributing/>.
