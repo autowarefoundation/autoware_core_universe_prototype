@@ -33,7 +33,7 @@ Reviewers **must** check the checkboxes below before approval.
 
 PR author **must** check the checkboxes below before merging.
 
-- [ ] There are no open points or they are tracked via tickets.
+- [ ] There are no open discussions or they are tracked via tickets.
 - [ ] The PR is ready for merge.
 
 After all checkboxes are checked, anyone who has the write access can merge the PR.
