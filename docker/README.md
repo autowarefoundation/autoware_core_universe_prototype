@@ -75,6 +75,40 @@ rocker --nvidia --x11 --user \
   -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt
 ```
 
+To access the same container from different terminals
+
+```bash
+# Terminal 1
+rocker --nvidia --x11 --name autoware --user --volume {path_to_your_workspace} \
+  -- ghcr.io/autowarefoundation/autoware-universe:latest
+
+# Terminal 2
+docker exec -it autoware /bin/bash
+```
+
+### Multi-terminal Access without rocker
+
+`rocker` creates a temporary container and deletes it after usage. Since building `autoware` might takes a while, we would like to have a continuous developing environment in some cases. Consider the following steps if you don't want to build from scratch every time.
+
+```bash
+cd docker/docker_gui
+source xhost.bash
+echo "$PWD/xhost.bash" >> ~/.bashrc
+touch $XAUTH
+xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+
+docker build -t universe_gui \
+  --build-arg USERNAME=$USERNAME \
+  --build-arg UID=$(id -u $USERNAME) \
+  --build-arg GID=$(id -g $USERNAME) .
+
+docker run -it -e XAUTHORITY=${XAUTH} -e DISPLAY -e QT_X11_NO_MITSHM=1 \
+  -v /home/$USER:/home/$USER \
+  -v $XSOCK:$XSOCK:rw \
+  -v $XAUTH:$XAUTH:rw \
+  -u="$USERNAME" universe_gui:latest
+```
+
 ## Building Docker images on your local machine
 
 If you want to build these images locally for development purposes, run the following command:
