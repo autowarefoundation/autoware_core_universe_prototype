@@ -1,1 +1,2 @@
+# Modified from https://github.com/probot/stale#usage
 daysUntilClose: false
