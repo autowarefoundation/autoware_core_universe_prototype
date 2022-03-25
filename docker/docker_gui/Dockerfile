@@ -1,4 +1,4 @@
-FROM ghcr.io/autowarefoundation/autoware-universe
+FROM ghcr.io/autowarefoundation/autoware-universe:20220315
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG USERNAME
