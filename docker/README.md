@@ -88,12 +88,12 @@ docker exec -it autoware /bin/bash
 
 ### Multi-terminal Access without rocker
 
-`rocker` creates a temporary container and deletes it after usage. Since building `autoware` might takes a while, we would like to have a continuous developing environment in some cases. Consider the following steps if you don't want to build from scratch every time.
+`rocker` creates a temporary container and deletes it after usage. Since building `universe` and `core` might take a while, we would like to have a continuous developing environment in some cases. Consider the following steps if you don't want to build from scratch every time.
 
 ```bash
 cd docker/docker_gui
 source xhost.bash
-echo "$PWD/xhost.bash" >> ~/.bashrc
+echo "source $PWD/xhost.bash" >> ~/.bashrc
 touch $XAUTH
 xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
