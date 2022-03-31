@@ -23,5 +23,5 @@ rmw_implementation_dashed=$(eval sed -e "s/_/-/g" <<< "${rmw_implementation}")
 sudo apt install ros-${rosdistro}-${rmw_implementation_dashed}
 
 # (Optional) You set the default RMW implementation in the ~/.bashrc file.
-echo "export RMW_IMPLEMENTATION=${rmw_implementation}" >> ~/.bashrc
+echo '' >> ~/.bashrc && echo "export RMW_IMPLEMENTATION=${rmw_implementation}" >> ~/.bashrc
 ```

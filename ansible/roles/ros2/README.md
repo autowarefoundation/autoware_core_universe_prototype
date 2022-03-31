@@ -61,5 +61,5 @@ sudo apt install ros-${rosdistro}-${installation_type}
 
 # Environment setup
 # (Optional) You can source ros2 in the ~/.bashrc file.
-echo "source /opt/ros/${rosdistro}/setup.bash" >> ~/.bashrc
+echo '' >> ~/.bashrc && echo "source /opt/ros/${rosdistro}/setup.bash" >> ~/.bashrc
 ```
