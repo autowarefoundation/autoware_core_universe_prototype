@@ -62,6 +62,8 @@ docker run hello-world
 
 Install Nvidia Container Toolkit:
 
+<!-- cspell:ignore Disp, Uncorr -->
+
 ```bash
 # Taken from https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit
 
