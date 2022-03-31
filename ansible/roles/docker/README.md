@@ -16,7 +16,7 @@ Also, it installs some additional tools:
 
 ## Manual Installation
 
-Install Docker Engine and its post-installation steps:
+Install Docker Engine and perform the post-installation steps:
 
 ```bash
 # Taken from: https://docs.docker.com/engine/install/ubuntu/
