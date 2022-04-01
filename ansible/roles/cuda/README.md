@@ -13,7 +13,7 @@ This role installs [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) fol
 Follow these instructions to download and install the CUDA Toolkit and the corresponding NVIDIA Driver for Ubuntu 20.04.
 
 For Universe, the `cuda_version` version can also be found in:
-[/ansible/playbooks/universe.yaml](/ansible/playbooks/universe.yaml)
+[../../playbooks/universe.yaml](../../playbooks/universe.yaml)
 
 ```bash
 # Modified from:

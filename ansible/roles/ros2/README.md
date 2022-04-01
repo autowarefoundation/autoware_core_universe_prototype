@@ -27,7 +27,7 @@ The `installation_type` variable can also be found in:
 [./defaults/main.yaml](./defaults/main.yaml)
 
 For Universe, the `rosdistro` variable can also be found in:
-[/ansible/playbooks/universe.yaml](/ansible/playbooks/universe.yaml)
+[../../playbooks/universe.yaml](../../playbooks/universe.yaml)
 
 ```bash
 # Taken from: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html

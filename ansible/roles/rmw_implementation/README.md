@@ -12,7 +12,7 @@ This role sets up ROS 2 RMW implementation following [this page](https://docs.ro
 ## Manual Installation
 
 For Universe, the `rosdistro` and `rmw_implementation` variable can also be found in:
-[/ansible/playbooks/universe.yaml](/ansible/playbooks/universe.yaml)
+[../../playbooks/universe.yaml](../../playbooks/universe.yaml)
 
 ```bash
 # For details: https://docs.ros.org/en/galactic/How-To-Guides/Working-with-multiple-RMW-implementations.html

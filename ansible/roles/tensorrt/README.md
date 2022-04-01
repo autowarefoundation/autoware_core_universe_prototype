@@ -12,7 +12,7 @@ This role installs TensorRT and cuDNN following [this page](https://docs.nvidia.
 ## Manual Installation
 
 For Universe, the `cudnn_version` and `tensorrt_version` variable can also be found in:
-[/ansible/playbooks/universe.yaml](/ansible/playbooks/universe.yaml)
+[../../playbooks/universe.yaml](../../playbooks/universe.yaml)
 
 ```bash
 # Taken from: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing

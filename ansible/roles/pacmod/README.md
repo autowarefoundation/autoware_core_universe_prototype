@@ -11,7 +11,7 @@ This role sets up the prerequisites to install pacmod3_msgs following [this page
 ## Manual Installation
 
 For Universe, the `rosdistro` variable can also be found in:
-[/ansible/playbooks/universe.yaml](/ansible/playbooks/universe.yaml)
+[../../playbooks/universe.yaml](../../playbooks/universe.yaml)
 
 ```bash
 # Taken from https://github.com/astuff/pacmod3#installation
