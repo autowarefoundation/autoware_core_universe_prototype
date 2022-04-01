@@ -1,6 +1,6 @@
 repositories:
   # core
-  core/autoware_auto_msgs:
+  core/tmp/autoware_auto_msgs:
     type: git
     url: https://github.com/tier4/autoware_auto_msgs.git # TODO(Tier IV): Move to autowarefoundation/autoware_msgs
     version: tier4/main
