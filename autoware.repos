@@ -21,7 +21,7 @@ repositories:
     type: git
     url: https://github.com/autowarefoundation/autoware.universe.git
     version: main
-  universe/tier4_autoware_msgs:
+  universe/extension_msgs/tier4_autoware_msgs:
     type: git
     url: https://github.com/tier4/tier4_autoware_msgs.git
     version: tier4/universe
