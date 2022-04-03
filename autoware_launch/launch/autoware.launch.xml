@@ -107,5 +107,4 @@
     <!-- Web Controller -->
     <include file="$(find-pkg-share web_controller)/launch/web_controller.launch.xml"/>
   </group>
-
 </launch>
