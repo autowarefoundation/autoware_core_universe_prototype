@@ -18,9 +18,9 @@
   <arg name="rviz" default="true" description="launch rviz"/>
   <arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/>
   <arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/>
-  <arg name="vehicle_simulation" default="false" description="use vehicle simulation"/>
   <arg name="use_pointcloud_container" default="true" description="launch pointcloud container"/>
   <arg name="pointcloud_container_name" default="pointcloud_container"/>
+  <arg name="launch_vehicle_interface" default="false"/>
   <!-- Optional parameters for scenario simulation -->
   <arg name="scenario_simulation" default="false" description="use scenario simulation"/>
 
@@ -41,9 +41,6 @@
 
   <!-- Vehicle -->
   <group>
-    <let name="launch_vehicle_interface" value="false" if="$(var vehicle_simulation)"/>
-    <let name="launch_vehicle_interface" value="true" unless="$(var vehicle_simulation)"/>
-
     <include file="$(find-pkg-share tier4_vehicle_launch)/launch/vehicle.launch.xml" if="$(var vehicle)">
       <arg name="vehicle_model" value="$(var vehicle_model)"/>
       <arg name="sensor_model" value="$(var sensor_model)"/>
@@ -124,18 +121,5 @@
 
     <!-- Web Controller -->
     <include file="$(find-pkg-share web_controller)/launch/web_controller.launch.xml"/>
-  </group>
-
-  <!-- Simulator -->
-  <group>
-    <let name="launch_dummy_perception" value="false"/>
-    <let name="launch_dummy_vehicle" value="false"/>
-
-    <include file="$(find-pkg-share tier4_simulator_launch)/launch/simulator.launch.xml">
-      <arg name="launch_dummy_perception" value="$(var launch_dummy_perception)"/>
-      <arg name="launch_dummy_vehicle" value="$(var launch_dummy_vehicle)"/>
-      <arg name="vehicle_model" value="$(var vehicle_model)"/>
-      <arg name="vehicle_info_param_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
-    </include>
   </group>
 </launch>
