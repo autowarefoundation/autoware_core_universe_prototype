@@ -7,6 +7,7 @@ The [Autoware Foundation](https://www.autoware.org/) manages the development of 
 [![Discord](https://img.shields.io/discord/953808765935816715?label=Join%20Autoware%20Discord&style=for-the-badge)](https://discord.gg/Q94UsPvReQ)
 
 ### Documentation
+
 See the [documentation site](https://autowarefoundation.github.io/autoware-documentation/main/) for details.
 
 ### Repository overview
