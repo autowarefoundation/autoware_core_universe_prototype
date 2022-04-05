@@ -42,5 +42,4 @@ See the [documentation site](https://autowarefoundation.github.io/autoware-docum
 
 ### Useful resources
 
-- [Autoware documentation](https://autowarefoundation.github.io/autoware-documentation/main/) (also [open source](https://github.com/autowarefoundation/autoware-documentation)!)
 - [Autoware Foundation homepage](https://www.autoware.org/)
