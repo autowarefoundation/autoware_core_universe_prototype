@@ -1132,8 +1132,11 @@ Visualization Manager:
                         collision: false
                         info_obstacle: false
                         obstacle: false
-                        sidewalk: false
+                        detection_area: false
+                        close_partition: false
                         slow factor_text: true
+                        path_raw: false
+                        path_interp: false
                       Topic:
                         Depth: 5
                         Durability Policy: Volatile
