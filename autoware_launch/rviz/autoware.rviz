@@ -826,10 +826,10 @@ Visualization Manager:
               Class: autoware_auto_perception_rviz_plugin/PredictedObjects
               Display 3d polygon: true
               Display Label: true
-              Display PoseWithCovariance: true
+              Display PoseWithCovariance: false
               Display Predicted Path Confidence: true
               Display Predicted Paths: true
-              Display Twist: true
+              Display Twist: false
               Display UUID: true
               Display Velocity: true
               Enabled: true
