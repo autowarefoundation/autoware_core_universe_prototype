@@ -107,6 +107,12 @@
     </include>
   </group>
 
+  <!-- API -->
+  <include file="$(find-pkg-share tier4_autoware_api_launch)/launch/autoware_api.launch.xml">
+    <arg name="init_simulator_pose" value="false"/>
+    <arg name="init_localization_pose" value="true"/>
+  </include>
+
   <!-- Tools -->
   <group>
     <!-- Rviz -->

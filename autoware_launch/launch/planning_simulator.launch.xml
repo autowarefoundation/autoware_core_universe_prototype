@@ -84,6 +84,12 @@
     <include file="$(find-pkg-share web_controller)/launch/web_controller.launch.xml" unless="$(var scenario_simulation)"/>
   </group>
 
+  <!-- API -->
+  <include file="$(find-pkg-share tier4_autoware_api_launch)/launch/autoware_api.launch.xml">
+    <arg name="init_simulator_pose" value="true"/>
+    <arg name="init_localization_pose" value="false"/>
+  </include>
+
   <!-- Simulator -->
   <group>
     <let name="launch_dummy_perception" value="false" if="$(var scenario_simulation)"/>
