@@ -28,28 +28,31 @@ jobs:
           tags=()
           for page in $(seq 1 10); do
             page_url="${base_url}?page=$page"
-            echo "page_url: $page_url"
+            echo -e "\npage_url: $page_url"
 
             page_tags=$(curl -fsSL "$page_url" -H "Authorization: token ${{ github.token }}" | jq ".[].metadata.container.tags[]" | cut -d '"' -f 2)
-            echo "page_tags: "$page_tags""
+            echo -e "\n[page_tags]\n$page_tags"
 
             if [ "$page_tags" = "" ]; then
               echo "No tags found in the page $page."
               break
             fi
 
-            tags+=("$page_tags")
+            for tag in $(IFS=$'\n'; echo "$page_tags"); do
+              tags+=("$tag")
+            done
           done
 
-          echo "tags: "$tags""
+          tags=$(IFS=$'\n'; echo "${tags[*]}")
+          echo -e "\n[tags]\n$tags"
 
           amd64_tags=$(echo "$tags" | grep "\-amd64" | sed "s/-amd64$//g")
           arm64_tags=$(echo "$tags" | grep "\-arm64" | sed "s/-arm64$//g")
           base_tags=$(printf "%s\n" "$amd64_tags" "$arm64_tags" | sort | uniq)
 
-          echo "amd64_tags: "$amd64_tags""
-          echo "arm64_tags: "$arm64_tags""
-          echo "base_tags: "$base_tags""
+          echo -e "\n[amd64_tags]\n$amd64_tags"
+          echo -e "\n[arm64_tags]\n$arm64_tags"
+          echo -e "\n[base_tags]\n$base_tags"
 
           for base_tag in $base_tags; do
             echo -e "\nbase_tag: $base_tag"
