@@ -22,15 +22,32 @@ jobs:
         run: |
           package_full_name=ghcr.io/${{ github.repository_owner }}/${{ env.PACKAGE_NAME }}
 
-          url="https://api.github.com/orgs/${{ github.repository_owner }}/packages/container/${{ env.PACKAGE_NAME }}/versions"
+          base_url="https://api.github.com/orgs/${{ github.repository_owner }}/packages/container/${{ env.PACKAGE_NAME }}/versions"
+          echo "base_url: $base_url"
 
-          echo "url: $url"
-          tags=$(curl -fsSL "$url" -H "Authorization: token ${{ github.token }}" | jq ".[].metadata.container.tags[]" | cut -d '"' -f 2)
+          tags=()
+          for page in $(seq 1 10); do
+            page_url="${base_url}?page=$page"
+            echo "page_url: $page_url"
+
+            page_tags=$(curl -fsSL "$page_url" -H "Authorization: token ${{ github.token }}" | jq ".[].metadata.container.tags[]" | cut -d '"' -f 2)
+            echo "page_tags: "$page_tags""
+
+            if [ "$page_tags" = "" ]; then
+              echo "No tags found in the page $page."
+              break
+            fi
+
+            tags+=("$page_tags")
+          done
+
+          echo "tags: "$tags""
 
           amd64_tags=$(echo "$tags" | grep "\-amd64" | sed "s/-amd64$//g")
           arm64_tags=$(echo "$tags" | grep "\-arm64" | sed "s/-arm64$//g")
           base_tags=$(printf "%s\n" "$amd64_tags" "$arm64_tags" | sort | uniq)
 
+          echo "tags: "$tags""
           echo "amd64_tags: "$amd64_tags""
           echo "arm64_tags: "$arm64_tags""
           echo "base_tags: "$base_tags""
