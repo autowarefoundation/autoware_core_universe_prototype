@@ -1,3 +1,19 @@
+- name: Get CUDA architecture name
+  ansible.builtin.shell: |
+    if [ "$(uname -m)" = "x86_64" ]; then
+      echo "x86_64"
+    else
+      echo "sbsa"
+    fi
+  register: cuda_architecture
+  changed_when: false
+
+- name: Change cuDNN version for sbsa
+  ansible.builtin.set_fact:
+    cudnn_version: "8.2.4.12-1+cuda11.4"
+  when: |
+    {{ cuda_architecture.stdout }} == "sbsa" and {{ cudnn_version }} == "8.2.4.15-1+cuda11.4"
+
 - name: Install cuDNN and TensorRT
   become: true
   ansible.builtin.apt:
