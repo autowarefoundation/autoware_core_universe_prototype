@@ -47,22 +47,39 @@ jobs:
           arm64_tags=$(echo "$tags" | grep "\-arm64" | sed "s/-arm64$//g")
           base_tags=$(printf "%s\n" "$amd64_tags" "$arm64_tags" | sort | uniq)
 
-          echo "tags: "$tags""
           echo "amd64_tags: "$amd64_tags""
           echo "arm64_tags: "$arm64_tags""
           echo "base_tags: "$base_tags""
 
           for base_tag in $base_tags; do
-            amd64_tag="$package_full_name":$(echo "$tags" | grep "$base_tag\-amd64")
-            arm64_tag="$package_full_name":$(echo "$tags" | grep "$base_tag\-arm64")
+            echo -e "\nbase_tag: $base_tag"
 
-            echo "base_tag: $base_tag"
+            amd64_tag=$(echo "$tags" | grep "$base_tag\-amd64" || true)
+            arm64_tag=$(echo "$tags" | grep "$base_tag\-arm64" || true)
+
             echo "amd64_tag: $amd64_tag"
             echo "arm64_tag: $arm64_tag"
 
+            if [ "$amd64_tag" != "" ]; then
+              amd64_image_name="$package_full_name:$amd64_tag"
+            else
+              echo "No amd64 tag found for '$base_tag'."
+              amd64_image_name=""
+            fi
+
+            if [ "$arm64_tag" != "" ]; then
+              arm64_image_name="$package_full_name:$arm64_tag"
+            else
+              echo "No arm64 tag found for '$base_tag'."
+              arm64_image_name=""
+            fi
+
+            echo "amd64_image_name: $amd64_image_name"
+            echo "arm64_image_name: $arm64_image_name"
+
             docker manifest create $package_full_name:$base_tag \
-              $amd64_tag \
-              $arm64_tag
+              $amd64_image_name \
+              $arm64_image_name
 
             docker manifest push $package_full_name:$base_tag
           done
