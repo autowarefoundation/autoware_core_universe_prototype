@@ -1,0 +1,29 @@
+name: github-release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Run generate-changelog
+        id: generate-changelog
+        uses: autowarefoundation/autoware-github-actions/generate-changelog@v1
+
+      - name: Release to GitHub
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --draft \
+            --title "Release ${{ github.ref_name }}" \
+            --notes "$NOTES"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTES: ${{ steps.generate-changelog.outputs.changelog }}
