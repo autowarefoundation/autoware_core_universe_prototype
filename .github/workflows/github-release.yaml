@@ -2,11 +2,13 @@ name: github-release
 
 on:
   push:
+    branches:
+      - beta/v*
     tags:
       - v*
   workflow_dispatch:
     inputs:
-      tag-name:
+      beta-branch-or-tag-name:
         type: string
         required: true
 
@@ -18,22 +20,35 @@ jobs:
         id: set-tag-name
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            TAG_NAME="${{ github.event.inputs.tag-name }}"
+            REF_NAME="${{ github.event.inputs.beta-branch-or-tag-name }}"
           else
-            TAG_NAME="${{ github.ref_name }}"
+            REF_NAME="${{ github.ref_name }}"
           fi
 
-          echo ::set-output name=tag-name::"$TAG_NAME"
+          echo ::set-output name=ref-name::"$REF_NAME"
+          echo ::set-output name=tag-name::"${REF_NAME#beta/}"
 
       - name: Check out repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ steps.set-tag-name.outputs.tag-name }}
+          ref: ${{ steps.set-tag-name.outputs.ref-name }}
+
+      - name: Create a temporary local tag for beta branches
+        run: |
+          if [[ "${{ steps.set-tag-name.outputs.ref-name }}" =~ "beta/" ]]; then
+            git tag "${{ steps.set-tag-name.outputs.tag-name }}"
+          fi
 
       - name: Run generate-changelog
         id: generate-changelog
         uses: autowarefoundation/autoware-github-actions/generate-changelog@v1
+
+      - name: Remove the temporary local tag for beta branches
+        run: |
+          if [[ "${{ steps.set-tag-name.outputs.ref-name }}" =~ "beta/" ]]; then
+            git tag -d "${{ steps.set-tag-name.outputs.tag-name }}"
+          fi
 
       - name: Release to GitHub
         run: |
