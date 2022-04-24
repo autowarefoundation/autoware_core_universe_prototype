@@ -1,10 +1,10 @@
-ARG ROS_DISTRO
 ARG CUDA_IMAGE_TAG
-ARG CUDNN_VERSION
-ARG TENSORRT_VERSION
-
 FROM nvidia/cuda:$CUDA_IMAGE_TAG as devel
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ARG ROS_DISTRO
+ARG CUDNN_VERSION
+ARG TENSORRT_VERSION
 
 ## Install apt packages
 # hadolint ignore=DL3008
