@@ -36,10 +36,10 @@ jobs:
           bake-target: autoware-universe
           build-args: |
             *.platform=linux/arm64
-            *.args.ROS_DISTRO=$ROS_DISTRO
-            *.args.CUDA_IMAGE_TAG=$CUDA_IMAGE_TAG
-            *.args.CUDNN_VERSION=$CUDNN_VERSION
-            *.args.TENSORRT_VERSION=$TENSORRT_VERSION
+            *.args.ROS_DISTRO=$rosdistro
+            *.args.CUDA_IMAGE_TAG=$cuda_image_tag
+            *.args.CUDNN_VERSION=$cudnn_version
+            *.args.TENSORRT_VERSION=$tensorrt_version
           tag-suffix: -arm64
 
       - name: Show disk space
