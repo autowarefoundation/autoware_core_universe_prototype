@@ -15,7 +15,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-ins
   && rm -rf /var/lib/apt/lists/*
 
 ## Copy files
-COPY autoware.repos setup-dev-env.sh ansible-galaxy-requirements.yaml /autoware/
+COPY autoware.repos setup-dev-env.sh ansible-galaxy-requirements.yaml amd64.env arm64.env /autoware/
 COPY ansible/ /autoware/ansible/
 WORKDIR /autoware
 RUN ls /autoware
