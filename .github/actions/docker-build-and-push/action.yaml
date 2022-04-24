@@ -5,12 +5,12 @@ inputs:
   bake-target:
     description: ""
     required: true
-  platforms:
+  build-args:
     description: ""
-    required: true
+    required: false
   tag-suffix:
     description: ""
-    required: true
+    required: false
 
 runs:
   using: composite
@@ -109,4 +109,4 @@ runs:
           docker/${{ inputs.bake-target }}/docker-bake.hcl
           bake.json
         set: |
-          *.platform=${{ inputs.platforms }}
+          ${{ inputs.build-args }}
