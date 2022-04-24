@@ -78,8 +78,8 @@ fi
 
 # Add env args
 # shellcheck disable=SC2013
-for env_def in $(cat amd64.env); do
-    ansible_args+=("--extra-vars" "$env_def")
+for env_name in $(sed "s/=.*//" <amd64.env); do
+    ansible_args+=("--extra-vars" "${env_name}=${!env_name}")
 done
 
 # Install sudo
