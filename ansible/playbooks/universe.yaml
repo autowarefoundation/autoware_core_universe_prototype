@@ -10,7 +10,7 @@
     - name: install_nvidia
       prompt: |-
         [Warning] Some Autoware components depend on the CUDA, cuDNN and TensorRT NVIDIA libraries which have end-user license agreements that should be reviewed before installation.
-        Proceed? [y/n]
+        Proceed? [y/N]
       private: false
   pre_tasks:
     - name: Show a warning if the NVIDIA libraries will not be installed
