@@ -13,4 +13,4 @@ jobs:
 
       - name: Run setup script
         run: |
-          ./setup-dev-env.sh -y docker
+          ./setup-dev-env.sh -y -v docker
