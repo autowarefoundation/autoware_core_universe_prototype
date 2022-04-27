@@ -1,7 +1,7 @@
-- name: Install apt packages
+- name: Install plotjuggler
   become: true
   ansible.builtin.apt:
     name:
-      - ros-galactic-plotjuggler-ros
+      - ros-{{ rosdistro }}-plotjuggler-ros
     state: latest
     update_cache: true
