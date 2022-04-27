@@ -17,7 +17,7 @@ We have two types of Docker image: `development` and `prebuilt`.
 
 The [setup script](../setup-dev-env.sh) will install these dependencies through the following roles.
 
-- [docker_engine](../ansible/roles/docker_engine/README.md)
+- [Docker](../ansible/roles/docker_engine/README.md)
 - [rocker](../ansible/roles/rocker/README.md)
 
 ## Usage
