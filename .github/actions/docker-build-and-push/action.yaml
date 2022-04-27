@@ -85,6 +85,11 @@ runs:
         username: ${{ github.repository_owner }}
         password: ${{ github.token }}
 
+    - name: tmp
+      run: |
+        echo "github.ref_name: ${{ github.ref_name }}"
+      shell: bash
+
     - name: Build and push
       uses: docker/bake-action@v2
       with:
