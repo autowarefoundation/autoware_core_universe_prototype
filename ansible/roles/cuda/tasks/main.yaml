@@ -1,3 +1,10 @@
+- name: (tmp for Ubuntu 22.04) Add liburcu6 repository into sources.list
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb http://jp.archive.ubuntu.com/ubuntu/ impish main restricted
+    filename: impish
+    state: present
+
 - name: Get CUDA architecture name
   ansible.builtin.shell: |
     if [ "$(uname -m)" = "x86_64" ]; then
