@@ -25,6 +25,7 @@
   roles:
     # Core
     - role: autoware.dev_env.autoware_core
+    - role: autoware.dev_env.plotjuggler
     - role: autoware.dev_env.pre_commit
     - role: autoware.dev_env.ros2
     - role: autoware.dev_env.ros2_dev_tools
@@ -35,6 +36,5 @@
     - role: autoware.dev_env.cuda
       when: install_nvidia == 'y'
     - role: autoware.dev_env.pacmod
-    - role: autoware.dev_env.plotjuggler
     - role: autoware.dev_env.tensorrt
       when: install_nvidia == 'y'
