@@ -1,6 +1,6 @@
-# docker
+# docker_engine
 
-This role installs Docker environment following the [installation guide](https://docs.docker.com/engine/install/ubuntu/) and sets up execution from non-root users following the [manual](https://docs.docker.com/engine/install/linux-postinstall/).
+This role installs [Docker Engine](https://docs.docker.com/engine/) following the [installation guide](https://docs.docker.com/engine/install/ubuntu/) and sets up execution from non-root users following the [manual](https://docs.docker.com/engine/install/linux-postinstall/).
 
 ## Inputs
 
