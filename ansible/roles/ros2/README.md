@@ -1,6 +1,6 @@
 # ros2
 
-This role installs [ROS 2](http://www.ros2.org/) following [this page](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html).
+This role installs [ROS 2](http://www.ros2.org/) following [this page](https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html).
 
 Additional steps may be needed depending on the `rosdistro` you choose.
 
@@ -30,7 +30,7 @@ For Universe, the `rosdistro` variable can also be found in:
 [../../playbooks/universe.yaml](../../playbooks/universe.yaml)
 
 ```bash
-# Taken from: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html
+# Taken from: https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html
 wget -O /tmp/amd64.env https://raw.githubusercontent.com/autowarefoundation/autoware/main/amd64.env && source /tmp/amd64.env
 
 # You will need to add the ROS 2 apt repository to your system. First, make sure that the Ubuntu Universe repository is enabled by checking the output of this command.
