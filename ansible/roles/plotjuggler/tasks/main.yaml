@@ -6,7 +6,6 @@
     state: latest
     update_cache: true
 
-
 - name: Run 'sudo rosdep init'
   become: true
   ansible.builtin.command:
