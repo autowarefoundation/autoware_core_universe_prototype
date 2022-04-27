@@ -31,8 +31,8 @@ repositories:
     version: tier4/universe
   universe/vendor/grid_map:
     type: git
-    url: https://github.com/ANYbotics/grid_map.git
-    version: ba2f9cb6e62f7ee9c5bac7401391a211e442e459
+    url: https://github.com/tier4/grid_map.git
+    version: prepare/humble
   universe/vendor/muSSP:
     type: git
     url: https://github.com/tier4/muSSP.git
@@ -86,3 +86,24 @@ repositories:
     type: git
     url: https://github.com/autowarefoundation/autoware_individual_params.git
     version: main
+  # missing packages
+  missing_packages/navigation2:
+    type: git
+    url: https://github.com/tier4/navigation2.git
+    version: prepare/humble
+  missing_packages/pacmod3:
+    type: git
+    url: https://github.com/tier4/pacmod3.git
+    version: rolling
+  missing_packages/pacmod3_msgs:
+    type: git
+    url: https://github.com/astuff/pacmod3_msgs.git
+    version: main
+  missing_packages/quaternion_operation:
+    type: git
+    url: https://github.com/OUXT-Polaris/quaternion_operation.git
+    version: ros2
+  missing_packages/velodyne_simulator:
+    type: git
+    url: https://github.com/tier4/velodyne_simulator.git
+    version: prepare/humble
