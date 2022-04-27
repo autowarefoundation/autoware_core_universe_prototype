@@ -5,9 +5,3 @@
       - ros-galactic-plotjuggler-ros
     state: latest
     update_cache: true
-
-- name: Run 'sudo rosdep init'
-  become: true
-  ansible.builtin.command:
-    cmd: rosdep init
-    creates: /etc/ros/rosdep/sources.list.d/20-default.list
