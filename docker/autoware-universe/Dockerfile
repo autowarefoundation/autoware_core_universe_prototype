@@ -49,7 +49,14 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-ins
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
+## Clean up unnecessary files
+RUN rm -f \
+  /etc/apt/sources.list.d/cuda.list \
+  /etc/apt/sources.list.d/docker.list \
+  /etc/apt/sources.list.d/nvidia-docker.list
+
 ## Create entrypoint
+# hadolint ignore=DL3059
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" > /etc/bash.bashrc
 CMD ["/bin/bash"]
 
