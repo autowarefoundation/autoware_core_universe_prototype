@@ -27,6 +27,7 @@ RUN mkdir -p ~/.ssh \
 ## Set up development environment
 RUN --mount=type=ssh \
   ./setup-dev-env.sh -y --no-nvidia universe \
+  && pip uninstall -y ansible ansible-core \
   && mkdir src \
   && vcs import src < autoware.repos \
   && rosdep update \
@@ -50,7 +51,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-ins
   && rm -rf /var/lib/apt/lists/*
 
 ## Clean up unnecessary files
-RUN rm -f \
+RUN rm -rf \
+  "$HOME"/.cache \
   /etc/apt/sources.list.d/cuda.list \
   /etc/apt/sources.list.d/docker.list \
   /etc/apt/sources.list.d/nvidia-docker.list
