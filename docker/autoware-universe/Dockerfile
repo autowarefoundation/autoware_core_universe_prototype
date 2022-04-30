@@ -50,7 +50,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-ins
   && rm -rf /var/lib/apt/lists/*
 
 ## Create entrypoint
-# hadolint ignore=SC1091
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" > /etc/bash.bashrc
 CMD ["/bin/bash"]
 
@@ -58,12 +57,10 @@ FROM devel as prebuilt
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ## Build and change permission for runtime data conversion
-# hadolint ignore=SC1091
 RUN source /opt/ros/"$ROS_DISTRO"/setup.bash \
   && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release \
   && find /autoware/install -type d -exec chmod 777 {} \;
 
 ## Create entrypoint
-# hadolint ignore=SC1091
 RUN echo "source /autoware/install/setup.bash" > /etc/bash.bashrc
 CMD ["/bin/bash"]
