@@ -8,7 +8,7 @@
   register: cuda_architecture
   changed_when: false
 
-- name: Install cuda keyring
+- name: Install CUDA keyring
   ansible.builtin.apt:
     deb: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/{{ cuda_architecture.stdout }}/cuda-keyring_1.0-1_all.deb
 
