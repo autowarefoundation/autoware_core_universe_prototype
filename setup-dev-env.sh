@@ -41,8 +41,8 @@ ansible_args=()
 if [ "$option_yes" = "true" ]; then
     echo -e "\e[36mRun the setup in non-interactive mode.\e[m"
 else
-    echo -e "\e[33mSetting up the build environment take up to 1 hour.\e[m"
-    read -rp ">  Are you sure to run the setup? [y/N] " answer
+    echo -e "\e[33mSetting up the build environment can take up to 1 hour.\e[m"
+    read -rp ">  Are you sure you want to run setup? [y/N] " answer
 
     # Check whether to cancel
     if ! [[ ${answer:0:1} =~ y|Y ]]; then
