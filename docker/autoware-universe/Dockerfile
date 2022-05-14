@@ -30,7 +30,7 @@ RUN --mount=type=ssh \
   && mkdir src \
   && vcs import src < autoware.repos \
   && rosdep update \
-  && DEBIAN_FRONTEND=noninteractive rosdep install -y --ignore-src --from-paths src --rosdistro "$ROS_DISTRO" \
+  && DEBIAN_FRONTEND=noninteractive rosdep install -y --ignore-src --from-paths . --rosdistro "$ROS_DISTRO" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
