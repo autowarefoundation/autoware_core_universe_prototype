@@ -17,6 +17,11 @@ jobs:
         run: |
           ./setup-dev-env.sh -y universe
 
+      - name: Set git config
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run vcs import
         run: |
           mkdir src
