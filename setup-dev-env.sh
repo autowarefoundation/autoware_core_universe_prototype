@@ -102,6 +102,9 @@ if [ "$ansible_version" != "5" ]; then
     pip3 install -U "ansible==5.*"
 fi
 
+# For Python packages installed with user privileges
+export PATH="$HOME/.local/bin:$PATH"
+
 # Install ansible collections
 ansible-galaxy collection install -f -r "$SCRIPT_DIR/ansible-galaxy-requirements.yaml"
 
