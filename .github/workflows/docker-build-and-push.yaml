@@ -11,6 +11,11 @@ on:
 jobs:
   docker-build-and-push:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        rosdistro:
+          - galactic
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
