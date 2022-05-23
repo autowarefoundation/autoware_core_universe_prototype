@@ -1,0 +1,55 @@
+repositories:
+  # core
+  core/tmp/autoware_auto_msgs:
+    type: git
+    url: https://github.com/tier4/autoware_auto_msgs.git # TODO(Tier IV): Move to autowarefoundation/autoware_msgs
+    version: tier4/main
+  core/autoware_msgs:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_msgs.git
+    version: main
+  core/autoware_common:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_common.git
+    version: main
+  core/autoware.core:
+    type: git
+    url: https://github.com/autowarefoundation/autoware.core.git
+    version: main
+  # launcher
+  launcher/autoware_launch:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_launch.git
+    version: main
+  # sensor_component
+  sensor_component/sensor_component_description:
+    type: git
+    url: https://github.com/tier4/sensor_component_description.git
+    version: main
+  sensor_component/tamagawa_imu_driver:
+    type: git
+    url: https://github.com/tier4/tamagawa_imu_driver.git
+    version: ros2
+  sensor_component/velodyne_vls:
+    type: git
+    url: https://github.com/tier4/velodyne_vls.git
+    version: tier4/universe
+  # sensor_kit
+  sensor_kit/sample_sensor_kit_launch:
+    type: git
+    url: https://github.com/autowarefoundation/sample_sensor_kit_launch.git
+    version: main
+  # vehicle
+  vehicle/sample_vehicle_launch:
+    type: git
+    url: https://github.com/autowarefoundation/sample_vehicle_launch.git
+    version: main
+  vehicle/pacmod_interface:
+    type: git
+    url: https://github.com/tier4/pacmod_interface.git
+    version: main
+  # param
+  param/autoware_individual_params:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_individual_params.git
+    version: main
