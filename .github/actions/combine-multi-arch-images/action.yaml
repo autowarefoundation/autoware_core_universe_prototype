@@ -1,4 +1,4 @@
-name: update-docker-manifest
+name: combine-multi-arch-images
 description: ""
 
 inputs:
