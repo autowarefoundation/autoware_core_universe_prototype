@@ -1,4 +1,4 @@
-name: build-self-hosted
+name: build-humble
 
 on:
   schedule:
@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 env:
-  rosdistro: galactic
-  branch: main
-  ubuntu-version: "20.04"
+  rosdistro: humble
+  branch: humble
+  ubuntu-version: "22.04"
 
 jobs:
-  build-self-hosted:
-    runs-on: [self-hosted, linux, ARM64]
+  build-humble:
+    runs-on: ubuntu-latest
     container: ubuntu:${{ env.ubuntu-version }}
     steps:
       - name: Check out repository
@@ -22,7 +22,12 @@ jobs:
 
       - name: Run setup script
         run: |
-          ./setup-dev-env.sh -y universe
+          ./setup-dev-env.sh -y
+
+      - name: Set git config
+        uses: autowarefoundation/autoware-github-actions/set-git-config@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run vcs import
         run: |

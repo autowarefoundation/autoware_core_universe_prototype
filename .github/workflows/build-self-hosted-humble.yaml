@@ -1,4 +1,4 @@
-name: build-self-hosted
+name: build-self-hosted-humble
 
 on:
   schedule:
@@ -6,12 +6,12 @@ on:
   workflow_dispatch:
 
 env:
-  rosdistro: galactic
-  branch: main
-  ubuntu-version: "20.04"
+  rosdistro: humble
+  branch: humble
+  ubuntu-version: "22.04"
 
 jobs:
-  build-self-hosted:
+  build-self-hosted-humble:
     runs-on: [self-hosted, linux, ARM64]
     container: ubuntu:${{ env.ubuntu-version }}
     steps:
