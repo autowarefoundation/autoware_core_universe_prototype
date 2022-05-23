@@ -24,7 +24,7 @@ runs:
       run: echo "::set-output name=image-name::ghcr.io/${{ github.repository_owner }}/${{ inputs.package-name }}"
       shell: bash
 
-    - name: Create Docker manifest
+    - name: Create Docker manifest for latest
       run: |
         # Check image existence
         distro_image="${{ steps.set-image-name.outputs.image-name }}:${{ inputs.rosdistro }}-latest"
@@ -43,4 +43,25 @@ runs:
           $arm64_image
 
         docker manifest push ${{ steps.set-image-name.outputs.image-name }}:latest
+      shell: bash
+
+    - name: Create Docker manifest for latest-prebuilt
+      run: |
+        # Check image existence
+        distro_image="${{ steps.set-image-name.outputs.image-name }}:${{ inputs.rosdistro }}-latest-prebuilt"
+        if docker manifest inspect "$distro_image-amd64" >/dev/null 2>&1; then
+          amd64_image="$distro_image-amd64"
+        fi
+        if docker manifest inspect "$distro_image-arm64" >/dev/null 2>&1; then
+          amd64_image="$distro_image-arm64"
+        fi
+
+        echo "amd64_image: $amd64_image"
+        echo "arm64_image: $arm64_image"
+
+        docker manifest create --amend ${{ steps.set-image-name.outputs.image-name }}:latest-prebuilt \
+          $amd64_image \
+          $arm64_image
+
+        docker manifest push ${{ steps.set-image-name.outputs.image-name }}:latest-prebuilt
       shell: bash
