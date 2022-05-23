@@ -8,12 +8,11 @@ on:
 env:
   rosdistro: humble
   branch: humble
-  ubuntu-version: "22.04"
 
 jobs:
   build-humble:
     runs-on: ubuntu-latest
-    container: ubuntu:${{ env.ubuntu-version }}
+    container: ubuntu:22.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v3

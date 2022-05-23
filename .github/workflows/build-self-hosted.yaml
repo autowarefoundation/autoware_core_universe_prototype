@@ -8,12 +8,11 @@ on:
 env:
   rosdistro: galactic
   branch: main
-  ubuntu-version: "20.04"
 
 jobs:
   build-self-hosted:
     runs-on: [self-hosted, linux, ARM64]
-    container: ubuntu:${{ env.ubuntu-version }}
+    container: ubuntu:20.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
