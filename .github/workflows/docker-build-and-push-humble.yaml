@@ -15,8 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { setup-args: --no-nvidia, additional-tag-prefix: "" }
-          - { setup-args: --no-cuda-drivers, additional-tag-prefix: cuda- }
+          - { setup-args: --no-nvidia, additional-tag-suffix: "" }
+          - { setup-args: --no-cuda-drivers, additional-tag-suffix: -cuda }
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -42,8 +42,8 @@ jobs:
             *.args.ROS_DISTRO=${{ env.rosdistro }}
             *.args.BASE_IMAGE=${{ env.base_image }}
             *.args.SETUP_ARGS=${{ matrix.setup-args }}
-          tag-prefix: ${{ env.rosdistro }}-${{ matrix.additional-tag-prefix }}
-          tag-suffix: -amd64
+          tag-prefix: ${{ env.rosdistro }}-
+          tag-suffix: ${{ matrix.additional-tag-suffix }}-amd64
 
       - name: Show disk space
         run: |
