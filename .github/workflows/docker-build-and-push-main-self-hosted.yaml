@@ -14,9 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        name:
+          - no-cuda
+          - cuda
         include:
-          - { setup-args: --no-nvidia, additional-tag-suffix: "" }
-          - { setup-args: --no-cuda-drivers, additional-tag-suffix: -cuda }
+          - { name: no-cuda, setup-args: --no-nvidia, additional-tag-suffix: "" }
+          - { name: cuda, setup-args: --no-cuda-drivers, additional-tag-suffix: -cuda }
     steps:
       # https://github.com/actions/checkout/issues/211
       - name: Change permission of workspace
