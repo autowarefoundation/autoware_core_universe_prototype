@@ -38,9 +38,9 @@ jobs:
           rosdistro: galactic
           tag-name: latest-cuda
 
-      - name: Create alias from 'autoware-universe:{rosdistro}-latest-cuda-prebuilt' to 'autoware-universe:latest-cuda-prebuilt'
+      - name: Create alias from 'autoware-universe:{rosdistro}-latest-prebuilt-cuda' to 'autoware-universe:latest-prebuilt-cuda'
         uses: ./.github/actions/create-main-distro-alias
         with:
           package-name: autoware-universe
           rosdistro: galactic
-          tag-name: latest-cuda-prebuilt
+          tag-name: latest-prebuilt-cuda
