@@ -99,3 +99,8 @@ repositories:
     type: git
     url: https://github.com/astuff/pacmod3_msgs.git
     version: main
+  # https://github.com/ros2-gbp/velodyne_simulator-release/issues/1
+  missing_packages/velodyne_simulator:
+    type: git
+    url: https://github.com/tier4/velodyne_simulator.git
+    version: prepare/humble
