@@ -3,3 +3,7 @@ repositories:
     type: git
     url: https://github.com/tier4/scenario_simulator_v2.git
     version: master
+  simulator/vendor/zmqpp_vendor:
+    type: git
+    url: https://github.com/tier4/zmqpp_vendor.git
+    version: main
