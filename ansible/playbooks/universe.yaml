@@ -35,7 +35,7 @@
     # Universe
     - role: autoware.dev_env.autoware_universe
     - role: autoware.dev_env.cuda
-      when: prompt_install_nvidia == 'y'
+      when: (prompt_install_nvidia == 'y') and (install_cuda | bool)
     - role: autoware.dev_env.pacmod
       when: rosdistro == 'galactic'
     - role: autoware.dev_env.tensorrt

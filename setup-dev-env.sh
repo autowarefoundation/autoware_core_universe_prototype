@@ -20,6 +20,9 @@ while [ "$1" != "" ]; do
     --no-nvidia)
         option_no_nvidia=true
         ;;
+    --no-cuda)
+        option_no_cuda=true
+        ;;
     --no-cuda-drivers)
         option_no_cuda_drivers=true
         ;;
@@ -68,6 +71,11 @@ elif [ "$option_yes" = "true" ]; then
     ansible_args+=("--extra-vars" "prompt_install_nvidia=y")
 fi
 
+# Check installation of CUDA
+if [ "$option_no_cuda" = "true" ]; then
+    ansible_args+=("--extra-vars" "install_cuda=false")
+else
+    ansible_args+=("--extra-vars" "install_cuda=true")
 fi
 
 # Check installation of CUDA Drivers
