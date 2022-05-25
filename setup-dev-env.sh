@@ -12,18 +12,23 @@ args=()
 while [ "$1" != "" ]; do
     case "$1" in
     -y)
+        # To skip prompt inputs without confirmation
         option_yes=true
         ;;
     -v)
+        # To enable debug outputs
         option_verbose=true
         ;;
     --no-nvidia)
+        # To disable installation of 'cuda' and 'tensorrt'
         option_no_nvidia=true
         ;;
     --no-cuda)
+        # To disable installation of 'cuda'
         option_no_cuda=true
         ;;
     --no-cuda-drivers)
+        # To disable installation of 'cuda-drivers' in 'cuda'
         option_no_cuda_drivers=true
         ;;
     *)
