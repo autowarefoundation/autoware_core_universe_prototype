@@ -16,6 +16,10 @@ repositories:
     type: git
     url: https://github.com/autowarefoundation/autoware.core.git
     version: main
+  ros2/ament_cmake:
+    type: git
+    url: https://github.com/autowarefoundation/ament_cmake.git
+    version: autoware-humble
   # universe
   universe/autoware.universe:
     type: git
