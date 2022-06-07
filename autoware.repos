@@ -82,3 +82,8 @@ repositories:
     type: git
     url: https://github.com/autowarefoundation/autoware_individual_params.git
     version: main
+  # external
+  external/ros/diagnostics:
+    type: git
+    url: https://github.com/ros/diagnostics.git
+    version: 31343dbbb8c2d1380768ed101a9d32f2df6aaee1
