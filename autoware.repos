@@ -16,7 +16,6 @@ repositories:
     type: git
     url: https://github.com/tier4/autoware_auto_msgs.git
     version: tier4/main
-
   # universe
   universe/autoware.universe:
     type: git
@@ -46,13 +45,11 @@ repositories:
     type: git
     url: https://github.com/tier4/pointcloud_to_laserscan.git
     version: tier4/main
-
   # launcher
   launcher/autoware_launch:
     type: git
     url: https://github.com/autowarefoundation/autoware_launch.git
     version: main
-
   # sensor_component
   sensor_component/external/sensor_component_description:
     type: git
@@ -66,13 +63,11 @@ repositories:
     type: git
     url: https://github.com/tier4/velodyne_vls.git
     version: tier4/universe
-
   # sensor_kit
   sensor_kit/sample_sensor_kit_launch:
     type: git
     url: https://github.com/autowarefoundation/sample_sensor_kit_launch.git
     version: main
-
   # vehicle
   vehicle/sample_vehicle_launch:
     type: git
@@ -82,7 +77,6 @@ repositories:
     type: git
     url: https://github.com/tier4/pacmod_interface.git
     version: main
-
   # param
   param/autoware_individual_params:
     type: git
