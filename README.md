@@ -1,6 +1,7 @@
 # Announcement
-This repository was merged with https://github.com/autowarefoundation/autoware and will be archived soon.
-Create further PR/Issue/Discussion in https://github.com/autowarefoundation/autoware.
+
+This repository was merged with <https://github.com/autowarefoundation/autoware> and will be archived soon.
+Create further PR/Issue/Discussion in <https://github.com/autowarefoundation/autoware>.
 
 # Autoware - the world's leading open-source software project for autonomous driving
 
