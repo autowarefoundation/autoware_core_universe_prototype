@@ -1,9 +1,11 @@
-# Announcement
+# Autoware - the world's leading open-source software project for autonomous driving
+
+## Announcement
 
 This repository was merged with <https://github.com/autowarefoundation/autoware> and will be archived soon.
 Create further PR/Issue/Discussion in <https://github.com/autowarefoundation/autoware>.
 
-# Autoware - the world's leading open-source software project for autonomous driving
+## What is Autoware?
 
 ![Autoware_RViz](https://user-images.githubusercontent.com/63835446/158918717-58d6deaf-93fb-47f9-891d-e242b02cba7b.png)
 [![Discord](https://img.shields.io/discord/953808765935816715?label=Autoware%20Discord&style=for-the-badge)](https://discord.gg/Q94UsPvReQ)
